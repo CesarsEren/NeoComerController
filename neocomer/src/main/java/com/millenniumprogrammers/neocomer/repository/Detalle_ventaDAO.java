@@ -19,10 +19,10 @@ public interface Detalle_ventaDAO {
 	@Select("Select id_venta,id_producto from Detalle_venta where id_venta= #{id_venta} ") 
 	public Detalle_venta SelectById(Detalle_venta bean); 
  
-	@Insert("insert into Detalle_venta(id_venta,id_producto) values(#{id_venta},#{id_producto})" ) 
+	@Insert("insert into Detalle_venta(id_producto) values(#{id_producto})" ) 
 	public int Register(Detalle_venta bean ); 
  
-	@Update(" update Detalle_venta set id_venta=#{id_venta},id_producto=#{id_producto} where id_venta=#{id_venta} ") 
+	@Update("update Detalle_venta set  where id_producto=#{id_producto} ") 
 	public int Update(Detalle_venta bean);
  
  }

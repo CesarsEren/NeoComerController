@@ -19,10 +19,10 @@ public interface ReclamosDAO {
 	@Select("Select id_reclamo,id_cliente,id_vendedor,id_venta,detalle_solucion,detalle_reclamo,FechaReg,FechaVenc,solucionado from Reclamos where id_reclamo= #{id_reclamo} ") 
 	public Reclamos SelectById(Reclamos bean); 
  
-	@Insert("insert into Reclamos(id_reclamo,id_cliente,id_vendedor,id_venta,detalle_solucion,detalle_reclamo,FechaReg,FechaVenc,solucionado) values(#{id_reclamo},#{id_cliente},#{id_vendedor},#{id_venta},#{detalle_solucion},#{detalle_reclamo},#{FechaReg},#{FechaVenc},#{solucionado})" ) 
+	@Insert("insert into Reclamos(id_cliente,id_vendedor,id_venta,detalle_solucion,detalle_reclamo,FechaReg,FechaVenc,solucionado) values(#{id_cliente},#{id_vendedor},#{id_venta},#{detalle_solucion},#{detalle_reclamo},#{FechaReg},#{FechaVenc},#{solucionado})" ) 
 	public int Register(Reclamos bean ); 
  
-	@Update(" update Reclamos set id_reclamo=#{id_reclamo},id_cliente=#{id_cliente},id_vendedor=#{id_vendedor},id_venta=#{id_venta},detalle_solucion=#{detalle_solucion},detalle_reclamo=#{detalle_reclamo},FechaReg=#{FechaReg},FechaVenc=#{FechaVenc},solucionado=#{solucionado} where id_reclamo=#{id_reclamo} ") 
+	@Update("update Reclamos set id_vendedor=#{id_vendedor},id_venta=#{id_venta},detalle_solucion=#{detalle_solucion},detalle_reclamo=#{detalle_reclamo},FechaReg=#{FechaReg},FechaVenc=#{FechaVenc},solucionado=#{solucionado} where id_cliente=#{id_cliente} ") 
 	public int Update(Reclamos bean);
  
  }

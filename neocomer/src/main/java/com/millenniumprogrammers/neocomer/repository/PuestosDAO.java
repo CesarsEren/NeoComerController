@@ -19,10 +19,10 @@ public interface PuestosDAO {
 	@Select("Select id_puesto,Detalle,Color,Estado from Puestos where id_puesto= #{id_puesto} ") 
 	public Puestos SelectById(Puestos bean); 
  
-	@Insert("insert into Puestos(id_puesto,Detalle,Color,Estado) values(#{id_puesto},#{Detalle},#{Color},#{Estado})" ) 
+	@Insert("insert into Puestos(Detalle,Color,Estado) values(#{Detalle},#{Color},#{Estado})" ) 
 	public int Register(Puestos bean ); 
  
-	@Update(" update Puestos set id_puesto=#{id_puesto},Detalle=#{Detalle},Color=#{Color},Estado=#{Estado} where id_puesto=#{id_puesto} ") 
+	@Update("update Puestos set Color=#{Color},Estado=#{Estado} where Detalle=#{Detalle} ") 
 	public int Update(Puestos bean);
  
  }

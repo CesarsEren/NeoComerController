@@ -19,10 +19,10 @@ public interface FotospuestoDAO {
 	@Select("Select id_foto,foto,estado from Fotospuesto where id_foto= #{id_foto} ") 
 	public Fotospuesto SelectById(Fotospuesto bean); 
  
-	@Insert("insert into Fotospuesto(id_foto,foto,estado) values(#{id_foto},#{foto},#{estado})" ) 
+	@Insert("insert into Fotospuesto(foto,estado) values(#{foto},#{estado})" ) 
 	public int Register(Fotospuesto bean ); 
  
-	@Update(" update Fotospuesto set id_foto=#{id_foto},foto=#{foto},estado=#{estado} where id_foto=#{id_foto} ") 
+	@Update("update Fotospuesto set estado=#{estado} where foto=#{foto} ") 
 	public int Update(Fotospuesto bean);
  
  }

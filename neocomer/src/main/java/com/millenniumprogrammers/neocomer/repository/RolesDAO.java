@@ -19,10 +19,10 @@ public interface RolesDAO {
 	@Select("Select id_rol,detalle from Roles where id_rol= #{id_rol} ") 
 	public Roles SelectById(Roles bean); 
  
-	@Insert("insert into Roles(id_rol,detalle) values(#{id_rol},#{detalle})" ) 
+	@Insert("insert into Roles(detalle) values(#{detalle})" ) 
 	public int Register(Roles bean ); 
  
-	@Update(" update Roles set id_rol=#{id_rol},detalle=#{detalle} where id_rol=#{id_rol} ") 
+	@Update("update Roles set  where detalle=#{detalle} ") 
 	public int Update(Roles bean);
  
  }

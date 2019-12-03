@@ -19,10 +19,10 @@ public interface TrabajadoresDAO {
 	@Select("Select id_trabajador,id_persona,correo,password,estado,id_rol from Trabajadores where id_trabajador= #{id_trabajador} ") 
 	public Trabajadores SelectById(Trabajadores bean); 
  
-	@Insert("insert into Trabajadores(id_trabajador,id_persona,correo,password,estado,id_rol) values(#{id_trabajador},#{id_persona},#{correo},#{password},#{estado},#{id_rol})" ) 
+	@Insert("insert into Trabajadores(id_persona,correo,password,estado,id_rol) values(#{id_persona},#{correo},#{password},#{estado},#{id_rol})" ) 
 	public int Register(Trabajadores bean ); 
  
-	@Update(" update Trabajadores set id_trabajador=#{id_trabajador},id_persona=#{id_persona},correo=#{correo},password=#{password},estado=#{estado},id_rol=#{id_rol} where id_trabajador=#{id_trabajador} ") 
+	@Update("update Trabajadores set correo=#{correo},password=#{password},estado=#{estado},id_rol=#{id_rol} where id_persona=#{id_persona} ") 
 	public int Update(Trabajadores bean);
  
  }

@@ -19,10 +19,10 @@ public interface AsociacionesDAO {
 	@Select("Select id_asociacion,id_rubro,RUC,Razon,Direccion,FechaRegistro from Asociaciones where id_asociacion= #{id_asociacion} ") 
 	public Asociaciones SelectById(Asociaciones bean); 
  
-	@Insert("insert into Asociaciones(id_asociacion,id_rubro,RUC,Razon,Direccion,FechaRegistro) values(#{id_asociacion},#{id_rubro},#{RUC},#{Razon},#{Direccion},#{FechaRegistro})" ) 
+	@Insert("insert into Asociaciones(id_rubro,RUC,Razon,Direccion,FechaRegistro) values(#{id_rubro},#{RUC},#{Razon},#{Direccion},#{FechaRegistro})" ) 
 	public int Register(Asociaciones bean ); 
  
-	@Update(" update Asociaciones set id_asociacion=#{id_asociacion},id_rubro=#{id_rubro},RUC=#{RUC},Razon=#{Razon},Direccion=#{Direccion},FechaRegistro=#{FechaRegistro} where id_asociacion=#{id_asociacion} ") 
+	@Update("update Asociaciones set RUC=#{RUC},Razon=#{Razon},Direccion=#{Direccion},FechaRegistro=#{FechaRegistro} where id_rubro=#{id_rubro} ") 
 	public int Update(Asociaciones bean);
  
  }

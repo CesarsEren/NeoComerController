@@ -19,10 +19,10 @@ public interface VentanasDAO {
 	@Select("Select id_ventana,detalle from Ventanas where id_ventana= #{id_ventana} ") 
 	public Ventanas SelectById(Ventanas bean); 
  
-	@Insert("insert into Ventanas(id_ventana,detalle) values(#{id_ventana},#{detalle})" ) 
+	@Insert("insert into Ventanas(detalle) values(#{detalle})" ) 
 	public int Register(Ventanas bean ); 
  
-	@Update(" update Ventanas set id_ventana=#{id_ventana},detalle=#{detalle} where id_ventana=#{id_ventana} ") 
+	@Update("update Ventanas set  where detalle=#{detalle} ") 
 	public int Update(Ventanas bean);
  
  }

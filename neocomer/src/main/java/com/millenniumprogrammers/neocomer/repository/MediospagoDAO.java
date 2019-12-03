@@ -19,10 +19,10 @@ public interface MediospagoDAO {
 	@Select("Select id_cliente,NroTarjeta,CCV,FechaVenc from Mediospago where id_cliente= #{id_cliente} ") 
 	public Mediospago SelectById(Mediospago bean); 
  
-	@Insert("insert into Mediospago(id_cliente,NroTarjeta,CCV,FechaVenc) values(#{id_cliente},#{NroTarjeta},#{CCV},#{FechaVenc})" ) 
+	@Insert("insert into Mediospago(NroTarjeta,CCV,FechaVenc) values(#{NroTarjeta},#{CCV},#{FechaVenc})" ) 
 	public int Register(Mediospago bean ); 
  
-	@Update(" update Mediospago set id_cliente=#{id_cliente},NroTarjeta=#{NroTarjeta},CCV=#{CCV},FechaVenc=#{FechaVenc} where id_cliente=#{id_cliente} ") 
+	@Update("update Mediospago set CCV=#{CCV},FechaVenc=#{FechaVenc} where NroTarjeta=#{NroTarjeta} ") 
 	public int Update(Mediospago bean);
  
  }

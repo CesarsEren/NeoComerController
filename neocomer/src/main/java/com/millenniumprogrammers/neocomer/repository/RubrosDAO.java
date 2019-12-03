@@ -19,10 +19,10 @@ public interface RubrosDAO {
 	@Select("Select id_rubro,detalle from Rubros where id_rubro= #{id_rubro} ") 
 	public Rubros SelectById(Rubros bean); 
  
-	@Insert("insert into Rubros(id_rubro,detalle) values(#{id_rubro},#{detalle})" ) 
+	@Insert("insert into Rubros(detalle) values(#{detalle})" ) 
 	public int Register(Rubros bean ); 
  
-	@Update(" update Rubros set id_rubro=#{id_rubro},detalle=#{detalle} where id_rubro=#{id_rubro} ") 
+	@Update("update Rubros set  where detalle=#{detalle} ") 
 	public int Update(Rubros bean);
  
  }

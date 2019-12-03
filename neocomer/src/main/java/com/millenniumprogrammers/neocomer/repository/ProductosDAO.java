@@ -19,10 +19,10 @@ public interface ProductosDAO {
 	@Select("Select id_producto,idvendedor,nombreproducto,precio from Productos where id_producto= #{id_producto} ") 
 	public Productos SelectById(Productos bean); 
  
-	@Insert("insert into Productos(id_producto,idvendedor,nombreproducto,precio) values(#{id_producto},#{idvendedor},#{nombreproducto},#{precio})" ) 
+	@Insert("insert into Productos(idvendedor,nombreproducto,precio) values(#{idvendedor},#{nombreproducto},#{precio})" ) 
 	public int Register(Productos bean ); 
  
-	@Update(" update Productos set id_producto=#{id_producto},idvendedor=#{idvendedor},nombreproducto=#{nombreproducto},precio=#{precio} where id_producto=#{id_producto} ") 
+	@Update("update Productos set nombreproducto=#{nombreproducto},precio=#{precio} where idvendedor=#{idvendedor} ") 
 	public int Update(Productos bean);
  
  }

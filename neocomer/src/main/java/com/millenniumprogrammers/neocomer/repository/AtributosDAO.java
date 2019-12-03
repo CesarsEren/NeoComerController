@@ -19,10 +19,10 @@ public interface AtributosDAO {
 	@Select("Select id_atributo,detalle from Atributos where id_atributo= #{id_atributo} ") 
 	public Atributos SelectById(Atributos bean); 
  
-	@Insert("insert into Atributos(id_atributo,detalle) values(#{id_atributo},#{detalle})" ) 
+	@Insert("insert into Atributos(detalle) values(#{detalle})" ) 
 	public int Register(Atributos bean ); 
  
-	@Update(" update Atributos set id_atributo=#{id_atributo},detalle=#{detalle} where id_atributo=#{id_atributo} ") 
+	@Update("update Atributos set  where detalle=#{detalle} ") 
 	public int Update(Atributos bean);
  
  }

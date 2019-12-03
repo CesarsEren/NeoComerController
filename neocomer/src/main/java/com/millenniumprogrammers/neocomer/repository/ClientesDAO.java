@@ -19,10 +19,10 @@ public interface ClientesDAO {
 	@Select("Select id_cliente,id_persona,correo,password from Clientes where id_cliente= #{id_cliente} ") 
 	public Clientes SelectById(Clientes bean); 
  
-	@Insert("insert into Clientes(id_cliente,id_persona,correo,password) values(#{id_cliente},#{id_persona},#{correo},#{password})" ) 
+	@Insert("insert into Clientes(id_persona,correo,password) values(#{id_persona},#{correo},#{password})" ) 
 	public int Register(Clientes bean ); 
  
-	@Update(" update Clientes set id_cliente=#{id_cliente},id_persona=#{id_persona},correo=#{correo},password=#{password} where id_cliente=#{id_cliente} ") 
+	@Update("update Clientes set correo=#{correo},password=#{password} where id_persona=#{id_persona} ") 
 	public int Update(Clientes bean);
  
  }

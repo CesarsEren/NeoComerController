@@ -19,10 +19,10 @@ public interface ZonasdisponiblesDAO {
 	@Select("Select id_zona,Apodo,longitud,latitud,estado from Zonasdisponibles where id_zona= #{id_zona} ") 
 	public Zonasdisponibles SelectById(Zonasdisponibles bean); 
  
-	@Insert("insert into Zonasdisponibles(id_zona,Apodo,longitud,latitud,estado) values(#{id_zona},#{Apodo},#{longitud},#{latitud},#{estado})" ) 
+	@Insert("insert into Zonasdisponibles(Apodo,longitud,latitud,estado) values(#{Apodo},#{longitud},#{latitud},#{estado})" ) 
 	public int Register(Zonasdisponibles bean ); 
  
-	@Update(" update Zonasdisponibles set id_zona=#{id_zona},Apodo=#{Apodo},longitud=#{longitud},latitud=#{latitud},estado=#{estado} where id_zona=#{id_zona} ") 
+	@Update("update Zonasdisponibles set longitud=#{longitud},latitud=#{latitud},estado=#{estado} where Apodo=#{Apodo} ") 
 	public int Update(Zonasdisponibles bean);
  
  }

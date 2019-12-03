@@ -13,7 +13,7 @@ public class Personas{
 	 private String DNI;
 	 private String Nombres;
 	 private String Apellidos;
-	 private String dirección;
+	 private String direccion;
 	 private String FechaNacimiento;
 	 private String FechaIngreso;
 	 private boolean Estado;

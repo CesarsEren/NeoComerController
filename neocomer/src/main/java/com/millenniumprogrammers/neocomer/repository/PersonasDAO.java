@@ -19,10 +19,10 @@ public interface PersonasDAO {
 	@Select("Select id_persona,DNI,Nombres,Apellidos,dirección,FechaNacimiento,FechaIngreso,Estado from Personas where id_persona= #{id_persona} ") 
 	public Personas SelectById(Personas bean); 
  
-	@Insert("insert into Personas(id_persona,DNI,Nombres,Apellidos,dirección,FechaNacimiento,FechaIngreso,Estado) values(#{id_persona},#{DNI},#{Nombres},#{Apellidos},#{dirección},#{FechaNacimiento},#{FechaIngreso},#{Estado})" ) 
+	@Insert("insert into Personas(DNI,Nombres,Apellidos,dirección,FechaNacimiento,FechaIngreso,Estado) values(#{DNI},#{Nombres},#{Apellidos},#{dirección},#{FechaNacimiento},#{FechaIngreso},#{Estado})" ) 
 	public int Register(Personas bean ); 
  
-	@Update(" update Personas set id_persona=#{id_persona},DNI=#{DNI},Nombres=#{Nombres},Apellidos=#{Apellidos},dirección=#{dirección},FechaNacimiento=#{FechaNacimiento},FechaIngreso=#{FechaIngreso},Estado=#{Estado} where id_persona=#{id_persona} ") 
+	@Update("update Personas set Nombres=#{Nombres},Apellidos=#{Apellidos},dirección=#{dirección},FechaNacimiento=#{FechaNacimiento},FechaIngreso=#{FechaIngreso},Estado=#{Estado} where DNI=#{DNI} ") 
 	public int Update(Personas bean);
  
  }
