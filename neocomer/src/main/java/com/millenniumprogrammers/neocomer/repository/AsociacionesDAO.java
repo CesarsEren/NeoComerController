@@ -13,10 +13,16 @@ import com.millenniumprogrammers.neocomer.model.Asociaciones;
 @Mapper 
 public interface AsociacionesDAO {
 
-	@Select("Select id_asociacion,id_rubro,RUC,Razon,Direccion,FechaRegistro, from Asociaciones") 
+	@Select("Select id_asociacion,id_rubro,RUC,Razon,Direccion,FechaRegistro from Asociaciones") 
 	public List<Asociaciones> SelectALL(); 
  
-	@Select("Select id_asociacion,id_rubro,RUC,Razon,Direccion,FechaRegistro, from Asociaciones where id_asociacion= #{id_asociacion} ") 
-	public Asociaciones SelectById(Asociaciones bean);
+	@Select("Select id_asociacion,id_rubro,RUC,Razon,Direccion,FechaRegistro from Asociaciones where id_asociacion= #{id_asociacion} ") 
+	public Asociaciones SelectById(Asociaciones bean); 
+ 
+	@Insert("insert into Asociaciones(id_asociacion,id_rubro,RUC,Razon,Direccion,FechaRegistro) values(#{id_asociacion},#{id_rubro},#{RUC},#{Razon},#{Direccion},#{FechaRegistro})" ) 
+	public int Register(Asociaciones bean ); 
+ 
+	@Update(" update Asociaciones set id_asociacion=#{id_asociacion},id_rubro=#{id_rubro},RUC=#{RUC},Razon=#{Razon},Direccion=#{Direccion},FechaRegistro=#{FechaRegistro} where id_asociacion=#{id_asociacion} ") 
+	public int Update(Asociaciones bean);
  
  }

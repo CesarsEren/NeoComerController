@@ -13,10 +13,16 @@ import com.millenniumprogrammers.neocomer.model.Ventanas;
 @Mapper 
 public interface VentanasDAO {
 
-	@Select("Select id_ventana,detalle, from Ventanas") 
+	@Select("Select id_ventana,detalle from Ventanas") 
 	public List<Ventanas> SelectALL(); 
  
-	@Select("Select id_ventana,detalle, from Ventanas where id_ventana= #{id_ventana} ") 
-	public Ventanas SelectById(Ventanas bean);
+	@Select("Select id_ventana,detalle from Ventanas where id_ventana= #{id_ventana} ") 
+	public Ventanas SelectById(Ventanas bean); 
+ 
+	@Insert("insert into Ventanas(id_ventana,detalle) values(#{id_ventana},#{detalle})" ) 
+	public int Register(Ventanas bean ); 
+ 
+	@Update(" update Ventanas set id_ventana=#{id_ventana},detalle=#{detalle} where id_ventana=#{id_ventana} ") 
+	public int Update(Ventanas bean);
  
  }

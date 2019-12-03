@@ -13,10 +13,16 @@ import com.millenniumprogrammers.neocomer.model.Personas;
 @Mapper 
 public interface PersonasDAO {
 
-	@Select("Select id_persona,DNI,Nombres,Apellidos,dirección,FechaNacimiento,FechaIngreso,Estado, from Personas") 
+	@Select("Select id_persona,DNI,Nombres,Apellidos,dirección,FechaNacimiento,FechaIngreso,Estado from Personas") 
 	public List<Personas> SelectALL(); 
  
-	@Select("Select id_persona,DNI,Nombres,Apellidos,dirección,FechaNacimiento,FechaIngreso,Estado, from Personas where id_persona= #{id_persona} ") 
-	public Personas SelectById(Personas bean);
+	@Select("Select id_persona,DNI,Nombres,Apellidos,dirección,FechaNacimiento,FechaIngreso,Estado from Personas where id_persona= #{id_persona} ") 
+	public Personas SelectById(Personas bean); 
+ 
+	@Insert("insert into Personas(id_persona,DNI,Nombres,Apellidos,dirección,FechaNacimiento,FechaIngreso,Estado) values(#{id_persona},#{DNI},#{Nombres},#{Apellidos},#{dirección},#{FechaNacimiento},#{FechaIngreso},#{Estado})" ) 
+	public int Register(Personas bean ); 
+ 
+	@Update(" update Personas set id_persona=#{id_persona},DNI=#{DNI},Nombres=#{Nombres},Apellidos=#{Apellidos},dirección=#{dirección},FechaNacimiento=#{FechaNacimiento},FechaIngreso=#{FechaIngreso},Estado=#{Estado} where id_persona=#{id_persona} ") 
+	public int Update(Personas bean);
  
  }

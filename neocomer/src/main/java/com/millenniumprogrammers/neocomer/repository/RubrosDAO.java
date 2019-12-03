@@ -13,10 +13,16 @@ import com.millenniumprogrammers.neocomer.model.Rubros;
 @Mapper 
 public interface RubrosDAO {
 
-	@Select("Select id_rubro,detalle, from Rubros") 
+	@Select("Select id_rubro,detalle from Rubros") 
 	public List<Rubros> SelectALL(); 
  
-	@Select("Select id_rubro,detalle, from Rubros where id_rubro= #{id_rubro} ") 
-	public Rubros SelectById(Rubros bean);
+	@Select("Select id_rubro,detalle from Rubros where id_rubro= #{id_rubro} ") 
+	public Rubros SelectById(Rubros bean); 
+ 
+	@Insert("insert into Rubros(id_rubro,detalle) values(#{id_rubro},#{detalle})" ) 
+	public int Register(Rubros bean ); 
+ 
+	@Update(" update Rubros set id_rubro=#{id_rubro},detalle=#{detalle} where id_rubro=#{id_rubro} ") 
+	public int Update(Rubros bean);
  
  }

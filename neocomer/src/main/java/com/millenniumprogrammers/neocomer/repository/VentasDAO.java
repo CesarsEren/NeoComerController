@@ -13,10 +13,16 @@ import com.millenniumprogrammers.neocomer.model.Ventas;
 @Mapper 
 public interface VentasDAO {
 
-	@Select("Select id_venta,id_cliente,id_vendedor,DNI,NombreCompleto,PrecioProd,cantidad,Tipo,Serie,Numero, from Ventas") 
+	@Select("Select id_venta,id_cliente,id_vendedor,DNI,NombreCompleto,PrecioProd,cantidad,Tipo,Serie,Numero from Ventas") 
 	public List<Ventas> SelectALL(); 
  
-	@Select("Select id_venta,id_cliente,id_vendedor,DNI,NombreCompleto,PrecioProd,cantidad,Tipo,Serie,Numero, from Ventas where id_venta= #{id_venta} ") 
-	public Ventas SelectById(Ventas bean);
+	@Select("Select id_venta,id_cliente,id_vendedor,DNI,NombreCompleto,PrecioProd,cantidad,Tipo,Serie,Numero from Ventas where id_venta= #{id_venta} ") 
+	public Ventas SelectById(Ventas bean); 
+ 
+	@Insert("insert into Ventas(id_venta,id_cliente,id_vendedor,DNI,NombreCompleto,PrecioProd,cantidad,Tipo,Serie,Numero) values(#{id_venta},#{id_cliente},#{id_vendedor},#{DNI},#{NombreCompleto},#{PrecioProd},#{cantidad},#{Tipo},#{Serie},#{Numero})" ) 
+	public int Register(Ventas bean ); 
+ 
+	@Update(" update Ventas set id_venta=#{id_venta},id_cliente=#{id_cliente},id_vendedor=#{id_vendedor},DNI=#{DNI},NombreCompleto=#{NombreCompleto},PrecioProd=#{PrecioProd},cantidad=#{cantidad},Tipo=#{Tipo},Serie=#{Serie},Numero=#{Numero} where id_venta=#{id_venta} ") 
+	public int Update(Ventas bean);
  
  }

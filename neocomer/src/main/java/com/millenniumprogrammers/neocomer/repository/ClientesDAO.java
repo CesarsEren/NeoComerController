@@ -13,10 +13,16 @@ import com.millenniumprogrammers.neocomer.model.Clientes;
 @Mapper 
 public interface ClientesDAO {
 
-	@Select("Select id_cliente,id_persona,correo,password, from Clientes") 
+	@Select("Select id_cliente,id_persona,correo,password from Clientes") 
 	public List<Clientes> SelectALL(); 
  
-	@Select("Select id_cliente,id_persona,correo,password, from Clientes where id_cliente= #{id_cliente} ") 
-	public Clientes SelectById(Clientes bean);
+	@Select("Select id_cliente,id_persona,correo,password from Clientes where id_cliente= #{id_cliente} ") 
+	public Clientes SelectById(Clientes bean); 
+ 
+	@Insert("insert into Clientes(id_cliente,id_persona,correo,password) values(#{id_cliente},#{id_persona},#{correo},#{password})" ) 
+	public int Register(Clientes bean ); 
+ 
+	@Update(" update Clientes set id_cliente=#{id_cliente},id_persona=#{id_persona},correo=#{correo},password=#{password} where id_cliente=#{id_cliente} ") 
+	public int Update(Clientes bean);
  
  }

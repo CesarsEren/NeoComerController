@@ -13,10 +13,16 @@ import com.millenniumprogrammers.neocomer.model.Roles;
 @Mapper 
 public interface RolesDAO {
 
-	@Select("Select id_rol,detalle, from Roles") 
+	@Select("Select id_rol,detalle from Roles") 
 	public List<Roles> SelectALL(); 
  
-	@Select("Select id_rol,detalle, from Roles where id_rol= #{id_rol} ") 
-	public Roles SelectById(Roles bean);
+	@Select("Select id_rol,detalle from Roles where id_rol= #{id_rol} ") 
+	public Roles SelectById(Roles bean); 
+ 
+	@Insert("insert into Roles(id_rol,detalle) values(#{id_rol},#{detalle})" ) 
+	public int Register(Roles bean ); 
+ 
+	@Update(" update Roles set id_rol=#{id_rol},detalle=#{detalle} where id_rol=#{id_rol} ") 
+	public int Update(Roles bean);
  
  }

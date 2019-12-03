@@ -13,10 +13,16 @@ import com.millenniumprogrammers.neocomer.model.Atributos;
 @Mapper 
 public interface AtributosDAO {
 
-	@Select("Select id_atributo,detalle, from Atributos") 
+	@Select("Select id_atributo,detalle from Atributos") 
 	public List<Atributos> SelectALL(); 
  
-	@Select("Select id_atributo,detalle, from Atributos where id_atributo= #{id_atributo} ") 
-	public Atributos SelectById(Atributos bean);
+	@Select("Select id_atributo,detalle from Atributos where id_atributo= #{id_atributo} ") 
+	public Atributos SelectById(Atributos bean); 
+ 
+	@Insert("insert into Atributos(id_atributo,detalle) values(#{id_atributo},#{detalle})" ) 
+	public int Register(Atributos bean ); 
+ 
+	@Update(" update Atributos set id_atributo=#{id_atributo},detalle=#{detalle} where id_atributo=#{id_atributo} ") 
+	public int Update(Atributos bean);
  
  }

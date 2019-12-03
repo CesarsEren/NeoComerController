@@ -13,10 +13,16 @@ import com.millenniumprogrammers.neocomer.model.Fotospuesto;
 @Mapper 
 public interface FotospuestoDAO {
 
-	@Select("Select id_foto,foto,estado, from Fotospuesto") 
+	@Select("Select id_foto,foto,estado from Fotospuesto") 
 	public List<Fotospuesto> SelectALL(); 
  
-	@Select("Select id_foto,foto,estado, from Fotospuesto where id_foto= #{id_foto} ") 
-	public Fotospuesto SelectById(Fotospuesto bean);
+	@Select("Select id_foto,foto,estado from Fotospuesto where id_foto= #{id_foto} ") 
+	public Fotospuesto SelectById(Fotospuesto bean); 
+ 
+	@Insert("insert into Fotospuesto(id_foto,foto,estado) values(#{id_foto},#{foto},#{estado})" ) 
+	public int Register(Fotospuesto bean ); 
+ 
+	@Update(" update Fotospuesto set id_foto=#{id_foto},foto=#{foto},estado=#{estado} where id_foto=#{id_foto} ") 
+	public int Update(Fotospuesto bean);
  
  }
