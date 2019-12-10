@@ -10,10 +10,10 @@ import lombok.NoArgsConstructor;
 public class Asociaciones{
     
 	 private int id_asociacion;
-	 private int id_rubro;
 	 private String RUC;
 	 private String Razon;
 	 private String Direccion;
 	 private String FechaRegistro;
+	 private boolean estado;
  
  }

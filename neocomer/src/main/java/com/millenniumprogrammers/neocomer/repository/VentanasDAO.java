@@ -7,6 +7,7 @@ import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Select; 
 import org.apache.ibatis.annotations.Update; 
 import org.springframework.stereotype.Repository;
+import org.apache.ibatis.annotations.Options;
 import com.millenniumprogrammers.neocomer.model.Ventanas; 
  
 @Repository 
@@ -17,12 +18,13 @@ public interface VentanasDAO {
 	public List<Ventanas> SelectALL(); 
  
 	@Select("Select id_ventana,detalle from Ventanas where id_ventana= #{id_ventana} ") 
-	public Ventanas SelectById(Ventanas bean); 
+	public Ventanas SelectById(Ventanas ventanas); 
  
 	@Insert("insert into Ventanas(detalle) values(#{detalle})" ) 
-	public int Register(Ventanas bean ); 
+	@Options(useGeneratedKeys = true ,keyColumn = "id_ventana",keyProperty ="id_ventana" )
+	public void Register(Ventanas ventanas ); 
  
-	@Update("update Ventanas set  where detalle=#{detalle} ") 
-	public int Update(Ventanas bean);
+	@Update("update Ventanas set detalle=#{detalle} where id_ventana= #{id_ventana} ") 
+	public void Update(Ventanas ventanas);
  
  }

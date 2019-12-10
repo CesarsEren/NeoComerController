@@ -7,22 +7,24 @@ import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Select; 
 import org.apache.ibatis.annotations.Update; 
 import org.springframework.stereotype.Repository;
+import org.apache.ibatis.annotations.Options;
 import com.millenniumprogrammers.neocomer.model.Asociaciones; 
  
 @Repository 
 @Mapper 
 public interface AsociacionesDAO {
 
-	@Select("Select id_asociacion,id_rubro,RUC,Razon,Direccion,FechaRegistro from Asociaciones") 
+	@Select("Select id_asociacion,RUC,Razon,Direccion,FechaRegistro,estado from Asociaciones") 
 	public List<Asociaciones> SelectALL(); 
  
-	@Select("Select id_asociacion,id_rubro,RUC,Razon,Direccion,FechaRegistro from Asociaciones where id_asociacion= #{id_asociacion} ") 
-	public Asociaciones SelectById(Asociaciones bean); 
+	@Select("Select id_asociacion,RUC,Razon,Direccion,FechaRegistro,estado from Asociaciones where id_asociacion= #{id_asociacion} ") 
+	public Asociaciones SelectById(Asociaciones asociaciones); 
  
-	@Insert("insert into Asociaciones(id_rubro,RUC,Razon,Direccion,FechaRegistro) values(#{id_rubro},#{RUC},#{Razon},#{Direccion},#{FechaRegistro})" ) 
-	public int Register(Asociaciones bean ); 
+	@Insert("insert into Asociaciones(RUC,Razon,Direccion,FechaRegistro,estado) values(#{RUC},#{Razon},#{Direccion},#{FechaRegistro},#{estado})" ) 
+	@Options(useGeneratedKeys = true ,keyColumn = "id_asociacion",keyProperty ="id_asociacion" )
+	public void Register(Asociaciones asociaciones ); 
  
-	@Update("update Asociaciones set RUC=#{RUC},Razon=#{Razon},Direccion=#{Direccion},FechaRegistro=#{FechaRegistro} where id_rubro=#{id_rubro} ") 
-	public int Update(Asociaciones bean);
+	@Update("update Asociaciones set RUC=#{RUC},Razon=#{Razon},Direccion=#{Direccion},FechaRegistro=#{FechaRegistro},estado=#{estado} where id_asociacion= #{id_asociacion} ") 
+	public void Update(Asociaciones asociaciones);
  
  }

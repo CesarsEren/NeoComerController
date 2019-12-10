@@ -7,12 +7,14 @@ import lombok.NoArgsConstructor;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class Puestos{
+public class Permisos{
     
-	 private int id_puesto;
-	 private String Detalle;
-	 private String Color;
+	 private int id_permiso;
+	 private int id_trabajador;
+	 private String FechaRegistro;
+	 private String FechaFin;
 	 private boolean Estado;
-	 private String Referencia;
+	 private int id_asociacion;
+	 private int id_zona;
  
  }

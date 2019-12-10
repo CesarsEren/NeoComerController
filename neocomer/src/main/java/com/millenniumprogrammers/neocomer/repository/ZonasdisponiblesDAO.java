@@ -7,6 +7,7 @@ import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Select; 
 import org.apache.ibatis.annotations.Update; 
 import org.springframework.stereotype.Repository;
+import org.apache.ibatis.annotations.Options;
 import com.millenniumprogrammers.neocomer.model.Zonasdisponibles; 
  
 @Repository 
@@ -17,12 +18,13 @@ public interface ZonasdisponiblesDAO {
 	public List<Zonasdisponibles> SelectALL(); 
  
 	@Select("Select id_zona,Apodo,longitud,latitud,estado from Zonasdisponibles where id_zona= #{id_zona} ") 
-	public Zonasdisponibles SelectById(Zonasdisponibles bean); 
+	public Zonasdisponibles SelectById(Zonasdisponibles zonasdisponibles); 
  
 	@Insert("insert into Zonasdisponibles(Apodo,longitud,latitud,estado) values(#{Apodo},#{longitud},#{latitud},#{estado})" ) 
-	public int Register(Zonasdisponibles bean ); 
+	@Options(useGeneratedKeys = true ,keyColumn = "id_zona",keyProperty ="id_zona" )
+	public void Register(Zonasdisponibles zonasdisponibles ); 
  
-	@Update("update Zonasdisponibles set longitud=#{longitud},latitud=#{latitud},estado=#{estado} where Apodo=#{Apodo} ") 
-	public int Update(Zonasdisponibles bean);
+	@Update("update Zonasdisponibles set Apodo=#{Apodo},longitud=#{longitud},latitud=#{latitud},estado=#{estado} where id_zona= #{id_zona} ") 
+	public void Update(Zonasdisponibles zonasdisponibles);
  
  }

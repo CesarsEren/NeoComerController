@@ -7,6 +7,7 @@ import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Select; 
 import org.apache.ibatis.annotations.Update; 
 import org.springframework.stereotype.Repository;
+import org.apache.ibatis.annotations.Options;
 import com.millenniumprogrammers.neocomer.model.Roles; 
  
 @Repository 
@@ -17,12 +18,13 @@ public interface RolesDAO {
 	public List<Roles> SelectALL(); 
  
 	@Select("Select id_rol,detalle from Roles where id_rol= #{id_rol} ") 
-	public Roles SelectById(Roles bean); 
+	public Roles SelectById(Roles roles); 
  
 	@Insert("insert into Roles(detalle) values(#{detalle})" ) 
-	public int Register(Roles bean ); 
+	@Options(useGeneratedKeys = true ,keyColumn = "id_rol",keyProperty ="id_rol" )
+	public void Register(Roles roles ); 
  
-	@Update("update Roles set  where detalle=#{detalle} ") 
-	public int Update(Roles bean);
+	@Update("update Roles set detalle=#{detalle} where id_rol= #{id_rol} ") 
+	public void Update(Roles roles);
  
  }

@@ -12,5 +12,6 @@ public class Fotospuesto{
 	 private int id_foto;
 	 private String foto;
 	 private boolean estado;
+	 private int id_puesto;
  
  }

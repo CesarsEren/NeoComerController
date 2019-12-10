@@ -15,7 +15,7 @@ public class Vendedores{
 	 private int id_permiso;
 	 private String correo;
 	 private String password;
-	 private int id_rol;
 	 private boolean estado;
+	 private int id_puesto;
  
  }

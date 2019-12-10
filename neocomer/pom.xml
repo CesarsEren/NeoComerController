@@ -64,6 +64,7 @@
 	</dependencies>
 
 	<build>
+	<finalName>neocomer</finalName>
 		<plugins>
 			<plugin>
 				<groupId>org.springframework.boot</groupId>
