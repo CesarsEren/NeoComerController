@@ -9,9 +9,23 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 public class RegistroClienteBean {
 
+	//Persona
 	String Nombres;
-	String Apellidos;
+	String Apellidos; 
 	String Documento;
 	String FechaNacimiento;
-	String Password; 
+	//Cliente
+	String Correo;
+	String Password;
+	//Direccion
+	String Apodo;
+	double longitud;
+	double latitud;
+	String direccion;
+	
+	//data
+	int id_cliente;//funciona como id_vendeor e id_cliente
+	int id_persona;
+	//para cliente y vendedor
+	String foto;
 }

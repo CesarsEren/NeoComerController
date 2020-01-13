@@ -11,7 +11,9 @@ public class Productos{
     
 	 private int id_producto;
 	 private int idvendedor;
+	 private String categoriaproducto;
 	 private String nombreproducto;
 	 private double precio;
+	 private String foto; 
  
  }

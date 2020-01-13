@@ -14,17 +14,20 @@ import com.millenniumprogrammers.neocomer.model.Mediospago;
 @Mapper 
 public interface MediospagoDAO {
 
-	@Select("Select id_cliente,NroTarjeta,CCV,FechaVenc from Mediospago") 
-	public List<Mediospago> SelectALL(); 
+	/*@Select("Select id_cliente,NroTarjeta,CCV,FechaVenc from Mediospago") 
+	public List<Mediospago> SelectALL(); */
  
-	@Select("Select id_cliente,NroTarjeta,CCV,FechaVenc from Mediospago where id_cliente= #{id_cliente} ") 
-	public Mediospago SelectById(Mediospago mediospago); 
+	@Select("Select id_cliente,id_mediopago,Nombre,Apellido,NroTarjeta,CCV,FechaVenc from Mediospago where id_cliente= #{id_cliente} ") 
+	public List<Mediospago> SelectById(Mediospago mediospago); 
  
-	@Insert("insert into Mediospago(NroTarjeta,CCV,FechaVenc) values(#{NroTarjeta},#{CCV},#{FechaVenc})" ) 
-	@Options(useGeneratedKeys = true ,keyColumn = "id_cliente",keyProperty ="id_cliente" )
+	@Insert("insert into Mediospago(id_cliente,Nombre,Apellido,NroTarjeta,CCV,FechaVenc) values(#{id_cliente},#{Nombre},#{Apellido},#{NroTarjeta},#{CCV},#{FechaVenc})" ) 
+	//@Options(useGeneratedKeys = true ,keyColumn = "id_cliente",keyProperty ="id_cliente" )
 	public void Register(Mediospago mediospago ); 
  
 	@Update("update Mediospago set NroTarjeta=#{NroTarjeta},CCV=#{CCV},FechaVenc=#{FechaVenc} where id_cliente= #{id_cliente} ") 
 	public void Update(Mediospago mediospago);
+	
+	@Delete("Delete Mediospago where id_cliente = #{id_cliente} and id_mediopago = #{id_mediopago}")
+	public int Delete(Mediospago mediospago);
  
  }

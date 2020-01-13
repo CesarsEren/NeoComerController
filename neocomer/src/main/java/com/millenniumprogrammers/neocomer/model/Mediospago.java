@@ -10,7 +10,10 @@ import lombok.NoArgsConstructor;
 public class Mediospago{
     
 	 private int id_cliente;
+	 private int id_mediopago;
 	 private String NroTarjeta;
+	 private String Nombre;
+	 private String Apellido;
 	 private String CCV;
 	 private String FechaVenc;
  

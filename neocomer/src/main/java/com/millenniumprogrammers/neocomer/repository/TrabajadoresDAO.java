@@ -19,10 +19,10 @@ public interface TrabajadoresDAO {
  
 	@Select("Select id_trabajador,id_persona,correo,password,estado,id_rol from Trabajadores where id_trabajador= #{id_trabajador} ") 
 	public Trabajadores SelectById(Trabajadores trabajadores); 
-	
+ 
 	@Select("select * from Trabajadores where correo = #{correo} and password = #{password} and estado = 1")
 	public Trabajadores SelectByCorreoAndPassword(String correo,String password);
- 
+	
 	@Insert("insert into Trabajadores(id_persona,correo,password,estado,id_rol) values(#{id_persona},#{correo},#{password},#{estado},#{id_rol})" ) 
 	@Options(useGeneratedKeys = true ,keyColumn = "id_trabajador",keyProperty ="id_trabajador" )
 	public void Register(Trabajadores trabajadores ); 

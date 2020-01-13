@@ -24,7 +24,7 @@ public interface PersonasDAO {
 	@Options(useGeneratedKeys = true ,keyColumn = "id_persona",keyProperty ="id_persona" )
 	public void Register(Personas personas ); 
  
-	@Update("update Personas set DNI=#{DNI},Nombres=#{Nombres},Apellidos=#{Apellidos},FechaNacimiento=#{FechaNacimiento},FechaIngreso=#{FechaIngreso},Estado=#{Estado},Direccion=#{Direccion} where id_persona= #{id_persona} ") 
+	@Update("update Personas set Nombres=#{Nombres},Apellidos=#{Apellidos},FechaNacimiento=#{FechaNacimiento} where id_persona= #{id_persona}") 
 	public void Update(Personas personas);
  
  }

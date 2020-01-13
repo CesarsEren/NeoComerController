@@ -17,5 +17,7 @@ public class Personas{
 	 private String FechaIngreso;
 	 private boolean Estado;
 	 private String Direccion;
- 
+
+	 //para vista de CLIENTES
+	 private int id_cliente;
  }

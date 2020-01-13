@@ -14,17 +14,24 @@ import com.millenniumprogrammers.neocomer.model.Productos;
 @Mapper 
 public interface ProductosDAO {
 
-	@Select("Select id_producto,idvendedor,nombreproducto,precio from Productos") 
+	@Select("Select id_producto,idvendedor,categoriaproducto,nombreproducto,precio from Productos") 
 	public List<Productos> SelectALL(); 
  
-	@Select("Select id_producto,idvendedor,nombreproducto,precio from Productos where id_producto= #{id_producto} ") 
-	public Productos SelectById(Productos productos); 
- 
-	@Insert("insert into Productos(idvendedor,nombreproducto,precio) values(#{idvendedor},#{nombreproducto},#{precio})" ) 
+	@Select("Select id_producto,idvendedor,categoriaproducto,nombreproducto,precio,foto from Productos where idvendedor= #{idvendedor} ") 
+	public List<Productos> SelectByIdVendedor(Productos productos);//SelectByPuesto
+	
+	@Select("Select id_producto,idvendedor,categoriaproducto,nombreproducto,precio,foto from Productos where idvendedor= #{idvendedor} and categoriaproducto = #{categoriaproducto} ") 
+	public List<Productos> SelectByIdVendedorAndCategoria(Productos productos);//SelectByPuesto
+	
+	@Insert("insert into Productos(idvendedor,nombreproducto,categoriaproducto,precio,foto) values(#{idvendedor},#{nombreproducto},#{categoriaproducto},#{precio},#{foto})" ) 
 	@Options(useGeneratedKeys = true ,keyColumn = "id_producto",keyProperty ="id_producto" )
 	public void Register(Productos productos ); 
+	
+	@Insert("insert into Productos(idvendedor,nombreproducto,categoriaproducto,precio,foto) values(#{idvendedor},#{nombreproducto},#{categoriaproducto},#{precio},#{foto})" ) 
+	@Options(useGeneratedKeys = true ,keyColumn = "id_producto",keyProperty ="id_producto" )
+	public Productos Register2(Productos productos );
  
-	@Update("update Productos set idvendedor=#{idvendedor},nombreproducto=#{nombreproducto},precio=#{precio} where id_producto= #{id_producto} ") 
+	@Update("update Productos set nombreproducto= #{nombreproducto},precio= #{precio} ,categoriaproducto = #{categoriaproducto} ,foto = #{foto} where id_producto= #{id_producto}") 
 	public void Update(Productos productos);
  
  }

@@ -13,5 +13,6 @@ public class Clientes{
 	 private int id_persona;
 	 private String correo;
 	 private String password;
+	 private String foto;
  
  }

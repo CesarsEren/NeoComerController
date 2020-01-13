@@ -19,10 +19,10 @@ public interface VendedoresDAO {
  
 	@Select("Select id_vendedor,id_persona,id_asociacion,id_permiso,correo,password,estado,id_puesto from Vendedores where id_vendedor= #{id_vendedor} ") 
 	public Vendedores SelectById(Vendedores vendedores); 
- 
-	@Select("select * from Vendedores where correo = #{correo} and password = #{password} and estado = 1")
-	public Vendedores SelectByCorreoAndPassword(String correo,String password); 
 	
+	@Select("select * from Vendedores where correo = #{correo} and password = #{password} and estado = 1")
+	public Vendedores SelectByCorreoAndPassword(String correo,String password);
+ 
 	@Insert("insert into Vendedores(id_persona,id_asociacion,id_permiso,correo,password,estado,id_puesto) values(#{id_persona},#{id_asociacion},#{id_permiso},#{correo},#{password},#{estado},#{id_puesto})" ) 
 	@Options(useGeneratedKeys = true ,keyColumn = "id_vendedor",keyProperty ="id_vendedor" )
 	public void Register(Vendedores vendedores ); 
