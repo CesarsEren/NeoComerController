@@ -287,7 +287,7 @@ public class NeocomerApplication {//implements CommandLineRunner{
 				permiso3.setId_asociacion(aso2.getId_asociacion());
 				permiso3.setId_trabajador(trab2.getId_trabajador());
 				permiso3.setId_zona(zona1.getId_zona());
-				permiDAO.Register(permiso3);
+				permiDAO.Register(permiso3); 
 				
 				Puestos puestos = new Puestos();
 				puestos.setColor("#F34235");
@@ -295,7 +295,7 @@ public class NeocomerApplication {//implements CommandLineRunner{
 				puestos.setEstado(true);
 				puestos.setReferencia("Hamburguesas");
 				puestosDAO.Register(puestos);
-				
+			 
 				Puestos puestos2 = new Puestos();
 				puestos2.setColor("#F34235");
 				puestos2.setDetalle("Emolientes la China");
